@@ -1,23 +1,30 @@
-{
-  "name": "anand-premier-league-registration",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@supabase/supabase-js": "^2.45.4",
-    "qrcode": "^1.5.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.24.1",
-    "xlsx": "^0.18.5"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.3.3"
-  }
+.spinner {
+  display: inline-block;
+  border-radius: 50%;
+  border: 2.5px solid rgba(11, 31, 58, 0.25);
+  border-top-color: var(--navy-900);
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner--light {
+  border-color: rgba(247, 245, 240, 0.35);
+  border-top-color: var(--on-dark);
+}
+
+.page-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy-800);
+}
+
+.page-loading .spinner {
+  width: 32px;
+  height: 32px;
+  border-width: 3px;
 }
