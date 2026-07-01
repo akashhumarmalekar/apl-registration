@@ -1,0 +1,119 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 20, 38, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  z-index: 100;
+  animation: backdropIn 0.2s ease both;
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7) var(--space-5) var(--space-6);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  animation: modalPop 0.32s cubic-bezier(0.2, 0.8, 0.3, 1.2) both;
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-ball {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto var(--space-5);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--gold-400), var(--gold-500));
+  border: 3px solid var(--green-500);
+  position: relative;
+  box-shadow: 0 12px 24px rgba(212, 175, 55, 0.35);
+  animation: ballBounce 0.7s ease 0.15s both;
+}
+
+.modal-ball::before,
+.modal-ball::after {
+  content: '';
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--navy-800);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+}
+
+.modal-ball::before { transform: translate(-50%, -50%) rotate(20deg); clip-path: inset(0 0 65% 0); }
+.modal-ball::after { transform: translate(-50%, -50%) rotate(20deg); clip-path: inset(65% 0 0 0); }
+
+@keyframes ballBounce {
+  0% { transform: scale(0.4) translateY(-20px); opacity: 0; }
+  60% { transform: scale(1.08) translateY(0); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--ink);
+  margin: 0 0 var(--space-3);
+}
+
+.modal-message {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin: 0 0 var(--space-6);
+}
+
+.modal-message strong {
+  color: var(--ink);
+}
+
+.modal-ok-btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--navy-700), var(--navy-900));
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.modal-ok-btn:active {
+  transform: scale(0.98);
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 7px;
+  height: 12px;
+  top: -10px;
+  opacity: 0.9;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(220px) rotate(540deg);
+    opacity: 0;
+  }
+}
